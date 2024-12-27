@@ -120,3 +120,6 @@ export type { VideoPlayerProps } from './VideoPlayer';
 
 export { default as PokemonCard } from './PokemonCard';
 export type { PokemonCardProps } from './PokemonCard';
+
+export { default as Gipher } from './Gipher';
+export type { GipherProps } from './Gipher';
