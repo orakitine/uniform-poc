@@ -7,11 +7,11 @@ export const Gipher: FC<GipherProps> = ({ sprites = {} as GipherProps['sprites']
   // Get all sprite URLs that exist, excluding 'other' and 'versions'
   const spriteUrls = Object.entries(sprites)
     .filter(
-      ([key, value]): value is [string, string] =>
+      (entry): entry is [string, string] =>
         // Exclude 'other' and 'versions' objects and null values
-        !['other', 'versions'].includes(key) && typeof value === 'string' && value !== null
+        !['other', 'versions'].includes(entry[0]) && typeof entry[1] === 'string' && entry[1] !== null
     )
-    .map(([_, url]) => url);
+    .map(([, url]) => url);
 
   useEffect(() => {
     if (spriteUrls.length <= 1) return;
