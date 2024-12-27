@@ -48,11 +48,7 @@ export const PokemonCard: FC<PokemonCardProps> = ({ name, url }) => {
 
       {/* View Details Button */}
       <div className="relative z-[1] text-center">
-        <Button
-          href={`/pokemons/${id}`}
-          copy="View Details"
-          className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg w-full text-white transition-colors duration-200"
-        />
+        <Button href={`/pokemons/${id}`} copy="View Details" />
       </div>
     </div>
   );
