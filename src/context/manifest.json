@@ -1,6 +1,29 @@
 {
   "project": {
-    "pz": {},
+    "pz": {
+      "sig": {
+        "testsignal": {
+          "str": 100,
+          "cap": 100,
+          "dur": "p",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "QS",
+                "match": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": "1"
+                },
+                "queryName": "a"
+              }
+            ]
+          }
+        }
+      }
+    },
     "test": {}
   }
 }

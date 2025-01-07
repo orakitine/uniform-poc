@@ -1,12 +1,29 @@
 /* eslint-disable */
 // @ts-nocheck
+import { useUniformContext } from '@uniformdev/context-react';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { PokemonCardProps } from '.';
 import Button from '../../components/Button';
 
-export const PokemonCard: FC<PokemonCardProps> = ({ name, url }) => {
-  const id = getPokemonId(url);
+export const PokemonCard: FC<PokemonCardProps> = ({ name, url, id, types }) => {
+  const { context } = useUniformContext();
+
+  const router = useRouter();
   const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+
+  const handleViewDetails = (e, id) => {
+    console.log(`Viewing details for Pokemon #${id}: ${name}`);
+    e.preventDefault();
+    context.update({
+      enrichments: types.map(type => ({
+        cat: 'pokemonType',
+        key: type,
+        str: 10,
+      })),
+    });
+    router.push(`/pokemons/${id}`);
+  };
 
   return (
     <div className="relative bg-white shadow-lg hover:shadow-2xl p-4 rounded-xl w-64 transform transition-all hover:-translate-y-1 duration-300 overflow-hidden group">
@@ -48,15 +65,10 @@ export const PokemonCard: FC<PokemonCardProps> = ({ name, url }) => {
 
       {/* View Details Button */}
       <div className="relative z-[1] text-center">
-        <Button href={`/pokemons/${id}`} copy="View Details" />
+        <Button onClick={e => handleViewDetails(e, id)} copy="View Details" />
       </div>
     </div>
   );
-};
-
-const getPokemonId = (url: string): string => {
-  const matches = url.match(/pokemon\/(\d+)/);
-  return matches?.[1] ?? '';
 };
 
 // Add this to your global CSS or Tailwind config
