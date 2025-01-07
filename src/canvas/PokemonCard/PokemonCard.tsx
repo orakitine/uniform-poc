@@ -6,7 +6,17 @@ import { FC } from 'react';
 import { PokemonCardProps } from '.';
 import Button from '../../components/Button';
 
-export const PokemonCard: FC<PokemonCardProps> = ({ name, url, id, types }) => {
+const typeColors = {
+  grass: 'bg-green-500',
+  poison: 'bg-purple-500',
+  fire: 'bg-red-500',
+  flying: 'bg-blue-300',
+  water: 'bg-blue-500',
+  bug: 'bg-lime-500',
+  normal: 'bg-gray-400',
+} as const;
+
+export const PokemonCard: FC<PokemonCardProps> = ({ name, url, id, types = [] }) => {
   const { context } = useUniformContext();
 
   const router = useRouter();
@@ -61,7 +71,21 @@ export const PokemonCard: FC<PokemonCardProps> = ({ name, url, id, types }) => {
       </div>
 
       {/* Pokemon Name */}
-      <h2 className="relative z-[1] mb-4 font-bold text-center text-gray-800 text-xl capitalize">{name}</h2>
+      <h2 className="relative z-[1] mb-2 font-bold text-center text-gray-800 text-xl capitalize">{name}</h2>
+
+      {/* Type Pills */}
+      <div className="relative z-[1] flex justify-center gap-2 mb-4">
+        {types.map(type => (
+          <span
+            key={type}
+            className={`${typeColors[type.toLowerCase()] || 'bg-gray-500'} 
+              px-3 py-1 rounded-full text-white text-sm font-semibold capitalize
+              shadow-sm`}
+          >
+            {type}
+          </span>
+        ))}
+      </div>
 
       {/* View Details Button */}
       <div className="relative z-[1] text-center">

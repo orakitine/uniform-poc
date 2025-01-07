@@ -10,6 +10,7 @@ interface Pokemon {
 interface PokemonResponse {
   results: Pokemon[];
 }
+
 interface PokemonType {
   slot: number;
   type: {
@@ -17,6 +18,9 @@ interface PokemonType {
     url: string;
   };
 }
+
+export const dynamic = 'force-dynamic'; // This tells Next.js to never cache this route
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
