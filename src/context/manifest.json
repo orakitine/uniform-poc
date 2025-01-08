@@ -1,26 +1,37 @@
 {
   "project": {
     "pz": {
-      "sig": {
-        "testsignal": {
-          "str": 100,
-          "cap": 100,
-          "dur": "p",
-          "crit": {
-            "op": "&",
-            "type": "G",
-            "clauses": [
-              {
-                "type": "QS",
-                "match": {
-                  "cs": false,
-                  "op": "=",
-                  "rhs": "1"
-                },
-                "queryName": "a"
-              }
-            ]
-          }
+      "agg": {
+        "preferesElementalForcePokemons": {
+          "inputs": [
+            {
+              "dim": "1_2"
+            },
+            {
+              "dim": "1_1"
+            },
+            {
+              "dim": "1_3"
+            }
+          ]
+        },
+        "prefersNaturalBeingPokemons": {
+          "inputs": [
+            {
+              "dim": "1_6"
+            },
+            {
+              "dim": "1_5"
+            },
+            {
+              "dim": "1_7"
+            }
+          ]
+        }
+      },
+      "enr": {
+        "1": {
+          "cap": 100
         }
       }
     },

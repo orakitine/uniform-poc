@@ -29,6 +29,7 @@
     "scaffold": "npm i && node cli-scaffold/dist/index.mjs"
   },
   "dependencies": {
+    "@uniformdev/cli": "latest",
     "@contentful/rich-text-html-renderer": "^16.1.0",
     "@contentful/rich-text-types": "^16.2.0",
     "@uniformdev/canvas": "19.207.0",
@@ -74,7 +75,7 @@
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.4.0",
     "@typescript-eslint/types": "^6.4.0",
-    "@uniformdev/cli": "19.207.0",
+    "@uniformdev/cli": "^19.212.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.47.0",
     "eslint-config-custom": "*",

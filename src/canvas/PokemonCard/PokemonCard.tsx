@@ -22,16 +22,18 @@ export const PokemonCard: FC<PokemonCardProps> = ({ name, url, id, types = [] })
   const router = useRouter();
   const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
-  const handleViewDetails = (e, id) => {
+  const handleViewDetails = async (e, id) => {
     console.log(`Viewing details for Pokemon #${id}: ${name}`);
     e.preventDefault();
-    context.update({
+
+    await context.update({
       enrichments: types.map(type => ({
         cat: 'pokemonType',
-        key: type,
+        key: type, // fire, grass, water, etc.
         str: 10,
       })),
     });
+
     router.push(`/pokemons/${id}`);
   };
 
