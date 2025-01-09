@@ -6,6 +6,16 @@ import { FC } from 'react';
 import { PokemonCardProps } from '.';
 import Button from '../../components/Button';
 
+const typeToEnrichmentIdMap = {
+  bug: '6',
+  fire: '1',
+  flying: '5',
+  grass: '3',
+  normal: '7',
+  poison: '4',
+  water: '2',
+} as const;
+
 const typeColors = {
   grass: 'bg-green-500',
   poison: 'bg-purple-500',
@@ -28,8 +38,8 @@ export const PokemonCard: FC<PokemonCardProps> = ({ name, url, id, types = [] })
 
     await context.update({
       enrichments: types.map(type => ({
-        cat: 'pokemonType',
-        key: type, // fire, grass, water, etc.
+        cat: '1',
+        key: typeToEnrichmentIdMap[type], // fire, grass, water, etc.
         str: 10,
       })),
     });
