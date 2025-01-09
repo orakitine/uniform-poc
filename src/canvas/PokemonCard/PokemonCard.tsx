@@ -36,13 +36,25 @@ export const PokemonCard: FC<PokemonCardProps> = ({ name, url, id, types = [] })
     console.log(`Viewing details for Pokemon #${id}: ${name}`);
     e.preventDefault();
 
-    await context.update({
-      enrichments: types.map(type => ({
-        cat: '1',
-        key: typeToEnrichmentIdMap[type], // fire, grass, water, etc.
-        str: 10,
-      })),
-    });
+    for (const type of types) {
+      await context.update({
+        enrichments: [
+          {
+            cat: '1',
+            key: typeToEnrichmentIdMap[type], // fire, grass, water, etc.
+            str: 10,
+          },
+        ],
+      });
+    }
+
+    // await context.update({
+    //   enrichments: types.map(type => ({
+    //     cat: '1',
+    //     key: typeToEnrichmentIdMap[type], // fire, grass, water, etc.
+    //     str: 10,
+    //   })),
+    // });
 
     router.push(`/pokemons/${id}`);
   };
