@@ -1,11 +1,11 @@
-import Head from 'next/head';
+import '@/canvas';
+import createUniformContext from '@/context/createUniformContext';
+import type { Asset } from '@uniformdev/assets';
+import type { RootComponentInstance } from '@uniformdev/canvas';
 import { UniformAppProps } from '@uniformdev/context-next';
 import { UniformContext } from '@uniformdev/context-react';
-import type { RootComponentInstance } from '@uniformdev/canvas';
-import type { Asset } from '@uniformdev/assets';
 import { LazyMotion, domAnimation } from 'framer-motion';
-import createUniformContext from '@/context/createUniformContext';
-import '@/canvas';
+import Head from 'next/head';
 import '../styles/globals.scss';
 import { getMediaUrl } from '../utilities';
 
@@ -98,6 +98,7 @@ const App = ({
         {/* Other stuff */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="version" content={process.env.NEXT_PUBLIC_APP_VERSION} />
+        <meta name="algolia-site-verification" content="16A9F47C291C49FA" />
         {faviconHref && <link rel="shortcut icon" href={faviconHref} />}
       </Head>
       <LazyMotion features={domAnimation}>
