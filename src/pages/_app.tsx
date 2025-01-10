@@ -1,10 +1,12 @@
 import '@/canvas';
+import '@/canvas/Algolia';
 import createUniformContext from '@/context/createUniformContext';
 import type { Asset } from '@uniformdev/assets';
 import type { RootComponentInstance } from '@uniformdev/canvas';
 import { UniformAppProps } from '@uniformdev/context-next';
 import { UniformContext } from '@uniformdev/context-react';
 import { LazyMotion, domAnimation } from 'framer-motion';
+import 'instantsearch.css/themes/algolia.css';
 import Head from 'next/head';
 import '../styles/globals.scss';
 import { getMediaUrl } from '../utilities';
