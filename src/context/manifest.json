@@ -57,6 +57,28 @@
         "1": {
           "cap": 100
         }
+      },
+      "sig": {
+        "promotion": {
+          "str": 1,
+          "cap": 1,
+          "dur": "t",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "QS",
+                "match": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": "Toronto"
+                },
+                "queryName": "promo"
+              }
+            ]
+          }
+        }
       }
     },
     "test": {}
